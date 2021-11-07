@@ -7,8 +7,6 @@ import pandas as pd
 def is_alowed_file(filename, allowed_extension):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_extension
 
-# TODO クラスでまとめられそう
-
 def get_total_frame_num(video):
     count = video.get(cv2.CAP_PROP_FRAME_COUNT)
     return count

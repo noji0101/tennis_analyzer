@@ -106,7 +106,6 @@ function cancel_submit(){
 }
 
 function loading(){
-    // TODO メッセージを引数にとって、表示する機能
     $('#loading').show();
     $('#content').hide();       
 }

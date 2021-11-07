@@ -41,9 +41,6 @@ def main(movie_path, configfile, court_points, is_output_movie=False): # , court
     all_data = make_dataframe(points, swing_classes, ball_coordinates, court_points)
     return all_data
 
-    # if is_output_movie:
-    #     make_video()
-
 
 if __name__=='__main__':
     court_points = {'court_point_1': [1130, 594],
