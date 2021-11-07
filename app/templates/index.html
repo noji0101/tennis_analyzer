@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="loading"></div>
+<div id="content">
+    {% if not input_img_url %}
+        <div class="button">
+            <form method="post" action="/select_court" enctype="multipart/form-data">
+                <label class="select_btn"><input type="file" id="input_movie_file" name="input_movie_file" onchange="show_filename();">select movie</label>
+                <label class="submit_btn"><input type="submit" id="infer" onclick="loading();">submit</label>
+                <p id="filename">not selected</p>
+            </form>
+        </div>
+    {% endif %}
+    {% if input_img_url %}
+        <div class="img_box">
+            <p>Click on the four dots for SINGLE coarts<br>bottom right → top right → top left → bottom left</p>
+            <div id='canvas_wrapper'>
+                <canvas id='canvas' onclick=''></canvas>
+            </div>
+                <!-- <img id="selected_image" src="{{ input_img_url }}" onclick="mccl('{{ input_img_url }}')" > -->
+        </div>
+        <label class="undo_btn"><input type="button" id="undo" onclick="undo();">Undo</label>
+        <label class="reload_btn"><input type="button" id="reload" onclick="window.location.reload();loading();">Change frame</label>
+        <!-- <label><input type="button" id="send" onclick="send_court();">Send</label> -->
+
+        <form class="send_btn" method="get" action="/result" onsubmit="return cancel_submit()">
+            <label><input type="submit" id="send" onclick="send_court();">Send</label>
+        </form>
+        <p class="p_top"><a href="/" class="top">TOP</a></p>
+    {% endif %}
+</div>
+{% if input_img_url %}
+    <script>
+        window.onload = function(){
+            main('{{ input_img_url }}');
+        }
+    </script>
+{% endif %}
+
+{% endblock %}
+

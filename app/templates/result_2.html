@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/home/duser/workspace/tennis_analyzer/app/static/css/style.css">
+        <title>Tennis Analyzer</title>
+    </head>
+    <header>
+        <h1>Tennis Analyzer</h1>
+    </header>
+
+    <body>
+        <div class="container">
+            <div class="row">
+<div id="loading"></div>
+<div id="content">
+    <div class="result">
+        <h2>Result</h2>
+        <div id="checkbox_wrapper">
+            <form method="post" action="/result_change_image" enctype="multipart/form-data">
+                <p>frame range</p>
+                <input class="input_number" type="number" name="frame" value={{ frame_range[0] }}>f：
+                <input class="input_number" type="number" name="frame" value={{ frame_range[1] }}>f
+                <input type="checkbox" id="01_A" name="check" value="0" {{ checked_list[0] }}>
+                <label for="01_A" class="checkbox01 01_A">idle</label>
+                <input type="checkbox" id="01_B" name="check" value="1" {{ checked_list[1] }}>
+                <label for="01_B" class="checkbox01 01_B">forehand</label>
+                <input type="checkbox" id="01_C" name="check" value="2" {{ checked_list[2] }}>
+                <label for="01_C" class="checkbox01 01_C">backhand</label>
+                <input type="checkbox" id="01_D" name="check" value="3" {{ checked_list[3] }}>
+                <label for="01_D" class="checkbox01 01_D">foreslice</label>
+                <input type="checkbox" id="01_E" name="check" value="4" {{ checked_list[4] }}>
+                <label for="01_E" class="checkbox01 01_E">backslice</label>
+                <input type="checkbox" id="01_F" name="check" value="5" {{ checked_list[5] }}>
+                <label for="01_F" class="checkbox01 01_F">serve</label>
+                <input type="checkbox" id="01_G" name="check" value="6" {{ checked_list[6] }}>
+                <label for="01_G" class="checkbox01 01_G">forevolley</label>
+                <input type="checkbox" id="01_H" name="check" value="7" {{ checked_list[7] }}>
+                <label for="01_H" class="checkbox01 01_H">backvolley</label>
+                <label class="submit_btn"><input type="submit" id="infer" onclick="loading();">change image</label>
+            </form>
+        </div>  
+        <div id="result_image_wrapper">
+            <image id="result_image" src="/home/duser/workspace/tennis_analyzer/app/static/uploads/result_image_2.png">
+        </div>
+    </div>
+    <div class="result">
+        <table>
+            <tbody>
+                <tr>
+                    <th></th>
+                    <th>left</th>
+                    <th>center</th>
+                    <th>right</th>
+                </tr>
+                <tr>
+                    <th>forehand</th>
+                    <td>37 %</td>
+                    <td>22 %</td>
+                    <td>39 %</td>
+                </tr>
+                <tr>
+                    <th>backhand</th>
+                    <td>41 %</td>
+                    <td>20 %</td>
+                    <td>38 %</td>
+                </tr>
+                <tr>
+                    <th>forehand on the left</th>
+                    <td>41 %</td>
+                    <td>20 %</td>
+                    <td>38 %</td>
+                </tr>
+                <tr>
+                    <th>forehand on the right</th>
+                    <td>27 %</td>
+                    <td>27 %</td>
+                    <td>44 %</td>
+                </tr>
+                <tr>
+                    <th>backhand on the left</th>
+                    <td>42 %</td>
+                    <td>32 %</td>
+                    <td>26 %</td>
+                </tr>
+                <tr>
+                    <th>backhand on the right</th>
+                    <td>15 %</td>
+                    <td>46 %</td>
+                    <td>38 %</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="p_top"><a href="/" class="top">TOP</a></p>
+</div>
+<script>
+    window.onload = function() {
+        let img = document.getElementById("result_image");
+        img.src = "/home/duser/workspace/tennis_analyzer/app/static/uploads/result_image_2.png";
+};
+</script>
+</div>
+</div>
+</body>
+</html>

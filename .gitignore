@@ -1,0 +1,9 @@
+__pycache__
+data
+.DS_Store
+*.ipynb
+.vscode/
+result/
+/app/static/uploads/
+yolo/
+*.mp4

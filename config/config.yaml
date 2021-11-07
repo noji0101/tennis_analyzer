@@ -1,0 +1,51 @@
+HRnet:
+  hrnet_m: HRNet
+  hrnet_j: 17
+  hrnet_c: 48
+  hrnet_weights: data/simple_HRnet/weights/pose_hrnet_w48_384x288.pth
+  image_resolution: (384, 288)
+  single_person : False
+  max_batch_size: 16
+  save_csv: False
+  csv_output_filename: output.csv
+  device: null
+
+TrackNet: 
+  weights_path: ./data/TrackNet/weights/model.3
+  n_classes: 256
+  is_save_csv: False
+  save_csv_path: ./ball_coordinates.csv #場所・名前は要検討
+
+Swing_clssifier:
+  data:
+    points_path: data/input/my_tennis_1/output.csv
+    anno_path: data/input/my_tennis_1/my_tennis_1_anno.csv
+    ckpt_dir: data/swing_classifier/weights/
+    classes: ['airplane', 'bird', 'car', 'cat', 'deer', 'dog', 'horse', 'monkey', 'ship', 'truck']
+    delete_weight: 2.1
+    train_val_ratio: [8, 2]
+  train:
+    batch_size: 128
+    epochs: 2
+    optimizer:
+      type: sgd
+      lr: 0.001
+      momentum: 0.9
+      decay: 0.0001
+    criterion:
+      type: CustomLoss
+      swing_ratio: 0.7
+    n_gpus: 1
+  
+  model:
+    name: SwingClassifier
+    n_classes: 10
+    n_points: 34
+    n_hidden: 16
+    n_target: 9
+    pretrained: False
+    resume: 
+    weights_path: data/swing_classifier/weights/epoch60_swing_ratio0.9_Adam_modified_swing_length_again.pth
+
+  util:
+    logdir: ./logs/

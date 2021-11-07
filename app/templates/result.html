@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="loading"></div>
+<div id="content">
+    <div class="result">
+        <h2>Result</h2>
+        <div id="checkbox_wrapper">
+            <form method="post" action="/result_change_image" enctype="multipart/form-data">
+                <p>frame range</p>
+                <input class="input_number" type="number" name="frame" value={{ frame_range[0] }}>f：
+                <input class="input_number" type="number" name="frame" value={{ frame_range[1] }}>f
+                <input type="checkbox" id="01_A" name="check" value="0" {{ checked_list[0] }}>
+                <label for="01_A" class="checkbox01 01_A">idle</label>
+                <input type="checkbox" id="01_B" name="check" value="1" {{ checked_list[1] }}>
+                <label for="01_B" class="checkbox01 01_B">forehand</label>
+                <input type="checkbox" id="01_C" name="check" value="2" {{ checked_list[2] }}>
+                <label for="01_C" class="checkbox01 01_C">backhand</label>
+                <input type="checkbox" id="01_D" name="check" value="3" {{ checked_list[3] }}>
+                <label for="01_D" class="checkbox01 01_D">foreslice</label>
+                <input type="checkbox" id="01_E" name="check" value="4" {{ checked_list[4] }}>
+                <label for="01_E" class="checkbox01 01_E">backslice</label>
+                <input type="checkbox" id="01_F" name="check" value="5" {{ checked_list[5] }}>
+                <label for="01_F" class="checkbox01 01_F">serve</label>
+                <input type="checkbox" id="01_G" name="check" value="6" {{ checked_list[6] }}>
+                <label for="01_G" class="checkbox01 01_G">forevolley</label>
+                <input type="checkbox" id="01_H" name="check" value="7" {{ checked_list[7] }}>
+                <label for="01_H" class="checkbox01 01_H">backvolley</label>
+                <label class="submit_btn"><input type="submit" id="infer" onclick="loading();">change image</label>
+            </form>
+        </div>  
+        <div id="result_image_wrapper">
+            <image id="result_image">
+        </div>
+    </div>
+    <div class="result">
+        <table>
+            <tbody>
+                <tr>
+                    <th></th>
+                    <th>left</th>
+                    <th>center</th>
+                    <th>right</th>
+                </tr>
+                <tr>
+                    <th>forehand</th>
+                    <td>{{region_ratios[0][0]}} %</td>
+                    <td>{{region_ratios[0][1]}} %</td>
+                    <td>{{region_ratios[0][2]}} %</td>
+                </tr>
+                <tr>
+                    <th>backhand</th>
+                    <td>{{region_ratios[1][0]}} %</td>
+                    <td>{{region_ratios[1][1]}} %</td>
+                    <td>{{region_ratios[1][2]}} %</td>
+                </tr>
+                <tr>
+                    <th>forehand on the left</th>
+                    <td>{{region_ratios[2][0]}} %</td>
+                    <td>{{region_ratios[2][1]}} %</td>
+                    <td>{{region_ratios[2][2]}} %</td>
+                </tr>
+                <tr>
+                    <th>forehand on the right</th>
+                    <td>{{region_ratios[3][0]}} %</td>
+                    <td>{{region_ratios[3][1]}} %</td>
+                    <td>{{region_ratios[3][2]}} %</td>
+                </tr>
+                <tr>
+                    <th>forehand on the left</th>
+                    <td>{{region_ratios[4][0]}} %</td>
+                    <td>{{region_ratios[4][1]}} %</td>
+                    <td>{{region_ratios[4][2]}} %</td>
+                </tr>
+                <tr>
+                    <th>forehand on the right</th>
+                    <td>{{region_ratios[5][0]}} %</td>
+                    <td>{{region_ratios[5][1]}} %</td>
+                    <td>{{region_ratios[5][2]}} %</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="p_top"><a href="/" class="top">TOP</a></p>
+</div>
+<script>
+    window.onload = function() {
+        let img = document.getElementById("result_image");
+        img.src = "{{ load_img_path }}";
+};
+</script>
+{% endblock %}
+
