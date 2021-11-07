@@ -66,7 +66,8 @@ python app/app.py
 
 8. Follow the app's instructions and click on the corner of the tennis court
 
-9. Push the send button and wait for a while. Then you'll get result.
+9. Push the send button and wait for a while. Then you'll get result.  
+You can choose which swings you want to show and the range of frames.
 
 
 ## 2. Pose Estimation
