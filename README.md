@@ -85,11 +85,14 @@ A modified version of this repository for this project is included in the module
 
 ## 3. Swing Classification
 
-I used 
+I used LSTM model.
+The input is player's keypoints each frame.
+The output is swing classes.
 
-swing class example
-
-
+swing class example：  
+Idle, Forehand, Backhand, Foreslice, Backslice, serve, Forevolley, Backvolley, Out of frame  
+These correspond to  
+0, 1, 2, 3, 4, 5, 6, 7, 8  
 ### train Swing classifier
 
 train
