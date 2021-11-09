@@ -9,6 +9,7 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1
 RUN update-alternatives --set python /usr/bin/python3.7
 RUN curl -s https://bootstrap.pypa.io/get-pip.py -o get-pip.py &&     python get-pip.py --force-reinstall &&     rm get-pip.py
 RUN apt-get install unzip 
+RUN apt-get update
 RUN apt-get install graphviz
 
 # pip install

@@ -150,7 +150,7 @@ def get_region_classes(all_data, frames, fps, polygons):
 
 
 def predcit_shot_region(all_data, frame, polygons, fps):
-    frame_range = [frame + int(fps*0), frame + int(fps*1)] # -1でいい？
+    frame_range = [frame + int(fps*0), frame + int(fps*1)]
     x_points = all_data['x_ball'][frame_range[0]:frame_range[1]]
     y_points = all_data['y_ball'][frame_range[0]:frame_range[1]]
     points = np.array([x_points, y_points], dtype=int).transpose().tolist()
