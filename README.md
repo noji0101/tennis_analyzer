@@ -42,7 +42,7 @@ Get YOLOv3:
 Download the weights from [here](https://nol.cs.nctu.edu.tw:234/open-source/TrackNet/raw/master/Code_Python3/TrackNet_Three_Frames_Input/weights/model.3) and put it in "data/TrackNet/weights/".
 
 2.3 swing classifier  
-Download the weights from [here](https://drive.google.com/file/d/1CPP2AnTb5UNkEnUoXwWt1VtWw61R26Ea/view?usp=sharing) and put it in "data/swing_classifier/weights/".
+Download the weights from [here](https://drive.google.com/file/d/1boClCSKP70bfdjPj4SLTA_uPJRFj-Wvb/view?usp=sharing) and put it in "data/swing_classifier/weights/".
 
 
 3. Build docker image
